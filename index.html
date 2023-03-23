@@ -10,7 +10,7 @@
   <button id="reset">Reset</button>
   <button id="hardreset">Power cycle</button>
   <button id="runframe">Run 1 frame</button><br>
-  <button id="select-rom">play</button><img src="yiarcp0f.jpg">
+  <img id="select-game" src="yiarcp0f.jpg">
   <canvas id="output"></canvas>
   <pre style="display:none;" id="log"></pre>
   <p style="display:none;">
@@ -36,27 +36,6 @@
 
   <script src="js/audio.js"></script>
   <script src="js/main.js"></script>
-
-  <script>
-    const defaultRomFilePath = 'g1.nes';
-    
-    const selectRomBtn = document.getElementById('select-rom');
-    const romInput = document.getElementById('rom');
-    
-    selectRomBtn.addEventListener('click', () => {
-      fetch(defaultRomFilePath)
-        .then(response => response.blob())
-        .then(blob => {
-          const file = new File([blob], 'default-rom-file');
-          romInput.files = [file];
-          selectRomBtn.style.display = 'none';
-        })
-        .catch(error => {
-          console.error(`Failed to fetch default ROM file: ${error}`);
-        });
-    });
-    
-    </script>
 
 </body>
 </html>

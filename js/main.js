@@ -37,6 +37,23 @@ let controlsP2 = {
 zip.workerScriptsPath = "lib/";
 zip.useWebWorkers = false;
 
+// Get the select-game element by ID
+let selectGameEl = document.getElementById("select-game");
+
+// Add an onclick event handler to the select-game element
+selectGameEl.onclick = function() {
+  // Load the contents of the g1.nes file using an XMLHttpRequest
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "g1.nes", true);
+  xhr.responseType = "arraybuffer";
+  xhr.onload = function() {
+    let arr = new Uint8Array(xhr.response);
+    loadRom(arr, "g1.nes");
+  };
+  xhr.send();
+};
+
+
 el("rom").onchange = function(e) {
   audioHandler.resume();
   let freader = new FileReader();
