@@ -2,6 +2,7 @@
 body {
   text-align: center;
   background-color: #000000;
+  overflow-y: hidden;
 }
 
 pre {
@@ -33,7 +34,7 @@ pre {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  overflow-y: hidden;
+  
 }
 
 #select-game{
