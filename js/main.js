@@ -43,6 +43,7 @@ let selectGameOutput = document.getElementById("output");
 
 // Add an onclick event handler to the select-game element
 selectGameEl.onclick = function() {
+  audioHandler.resume();
   // Load the contents of the g1.nes file using an XMLHttpRequest
   let xhr = new XMLHttpRequest();
   xhr.open("GET", "g1.nes", true);
