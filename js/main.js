@@ -39,6 +39,7 @@ zip.useWebWorkers = false;
 
 // Get the select-game element by ID
 let selectGameEl = document.getElementById("select-game");
+let selectGameOutput = document.getElementById("output");
 
 // Add an onclick event handler to the select-game element
 selectGameEl.onclick = function() {
@@ -49,9 +50,13 @@ selectGameEl.onclick = function() {
   xhr.onload = function() {
     let arr = new Uint8Array(xhr.response);
     loadRom(arr, "g1.nes");
+    // Hide the select-game element
+    selectGameEl.style.display = "none";
+    selectGameOutput.style.display = "block";
   };
   xhr.send();
 };
+
 
 
 el("rom").onchange = function(e) {
